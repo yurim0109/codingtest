@@ -1,0 +1,15 @@
+def solution(phone_book):
+    phone_book.sort()   # 자리별 숫자 크기 순으로 정렬
+    for i, txt in enumerate(phone_book):
+        for j in range(i+1, len(phone_book)):
+            if txt == phone_book[j][:len(txt)]:
+                return False    
+    return True
+
+# 다른 풀이 
+def solution(phone_book):
+    phone_book.sort()
+    for p1, p2 in zip(phone_book, phone_book[1:]):  # zip(): 데이터를 하나씩 짝짓기, 갯수 맞는 것까지만 출력 
+        if p2.startswith(p1):                       # startswith() : ~로 시작하면 True, 아니면 False 
+            return False
+        return True
